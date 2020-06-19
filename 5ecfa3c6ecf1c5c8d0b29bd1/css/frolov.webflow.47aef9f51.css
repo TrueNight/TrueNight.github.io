@@ -1,4 +1,4 @@
-/* Generated on: Fri Jun 05 2020 08:30:33 GMT+0000 (Coordinated Universal Time) */
+/* Generated on: Fri Jun 19 2020 18:09:56 GMT+0000 (Coordinated Universal Time) */
 /* ==========================================================================
    normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css 
    ========================================================================== */
@@ -221,6 +221,7 @@ img {
 }
 
 .button {
+  display: inline-block;
   padding-right: 25px;
   padding-left: 25px;
   border: 1px solid #00d6b4;
@@ -233,6 +234,7 @@ img {
   font-size: 13px;
   line-height: 19px;
   font-weight: 300;
+  text-align: center;
   text-transform: uppercase;
 }
 
@@ -353,6 +355,7 @@ img {
   font-size: 48px;
   line-height: 53px;
   font-weight: 300;
+  text-align: center;
 }
 
 .main-heading.inline {
@@ -365,8 +368,6 @@ img {
 
 .heading-wrapper {
   margin-top: 140px;
-  padding-right: 15%;
-  padding-left: 15%;
   text-align: center;
 }
 
@@ -382,6 +383,7 @@ img {
 .profile-pic {
   display: block;
   width: 90px;
+  height: 90px;
   margin-right: auto;
   margin-bottom: 31px;
   margin-left: auto;
@@ -444,6 +446,7 @@ img {
   border-radius: 3px;
   -webkit-transition: opacity 200ms ease;
   transition: opacity 200ms ease;
+  text-align: center;
 }
 
 .project-image:hover {
@@ -590,6 +593,10 @@ img {
 .collection-item {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.w-webflow-badge {
+  display: none !important;
 }
 
 @media screen and (max-width: 991px) {
