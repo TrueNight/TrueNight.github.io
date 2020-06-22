@@ -1,4 +1,4 @@
-/* Generated on: Fri Jun 19 2020 18:09:56 GMT+0000 (Coordinated Universal Time) */
+/* Generated on: Sun Jun 21 2020 08:46:24 GMT+0000 (Coordinated Universal Time) */
 /* ==========================================================================
    normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css 
    ========================================================================== */
@@ -97,8 +97,8 @@ img {
 
 .hero {
   min-height: 540px;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.57)), to(#222)), url("../5ed8cbb0a147706f6010ad78_phone4.png");
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.57), #222), url("../5ed8cbb0a147706f6010ad78_phone4.png");
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.57)), to(#222)), url("/5ecfa3c6ecf1c5c8d0b29bd1/5ed8cbb0a147706f6010ad78_phone4.png");
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.57), #222), url("/5ecfa3c6ecf1c5c8d0b29bd1/5ed8cbb0a147706f6010ad78_phone4.png");
   background-position: 0px 0px, 38% 50%;
   background-size: auto, cover;
   background-repeat: repeat, no-repeat;
@@ -114,8 +114,8 @@ img {
 
 .hero.about-page {
   min-height: 340px;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.57)), to(#222)), url("../5ecfd12decf1c56cf7b3c840_surf.png");
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.57), #222), url("../5ecfd12decf1c56cf7b3c840_surf.png");
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.57)), to(#222)), url("/5ecfa3c6ecf1c5c8d0b29bd1/5ecfd12decf1c56cf7b3c840_surf.png");
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.57), #222), url("/5ecfa3c6ecf1c5c8d0b29bd1/5ecfd12decf1c56cf7b3c840_surf.png");
   background-size: auto, cover;
 }
 
@@ -595,8 +595,16 @@ img {
   padding-bottom: 10px;
 }
 
-.w-webflow-badge {
-  display: none !important;
+.collection-list {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 0px;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: auto;
+  grid-template-rows: auto;
 }
 
 @media screen and (max-width: 991px) {
@@ -684,6 +692,14 @@ img {
     margin-right: 40px;
     margin-left: 40px;
   }
+  .collection-list {
+    grid-column-gap: 10px;
+    grid-row-gap: 0px;
+  }
+  .container {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
 }
 
 @media screen and (max-width: 479px) {
@@ -717,4 +733,8 @@ img {
     display: block;
     width: 100%;
   }
+}
+
+.w-webflow-badge {
+  display: none !important;
 }
