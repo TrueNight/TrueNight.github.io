@@ -1,1 +1,1 @@
-Personal website https://frolov.dev
+Personal website <a href="https://frolov.dev" target="_blank">frolov.dev</a>
