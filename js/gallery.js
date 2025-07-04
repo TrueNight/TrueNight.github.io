@@ -107,9 +107,9 @@
     let galleryData = [];
     let currentIndex = 0;
 
-    // Helper: Parse JSON from .w-json script
+    // Helper: Parse JSON from .tn-json script
     function getJsonData(item) {
-      const jsonScript = item.querySelector('.w-json');
+      const jsonScript = item.querySelector('.tn-json');
       if (!jsonScript) return null;
       try {
         return JSON.parse(jsonScript.textContent);
@@ -141,7 +141,7 @@
     // Update modal content
     function updateGallery() {
       const {data} = galleryData[currentIndex];
-      const img = data.items[0]; // Assuming one image per .w-json
+      const img = data.items[0]; // Assuming one image per .tn-json
       document.getElementById('gallery-image').src = img.url;
       document.getElementById('gallery-meta').textContent = `Image ${currentIndex + 1} of ${galleryData.length}`;
     }
