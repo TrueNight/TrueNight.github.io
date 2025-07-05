@@ -1,0 +1,58 @@
+- slug: 100am
+  title: "100AM"
+  description: |
+    <p><strong>Impact Highlights:</strong></p>
+    <ul role="list">
+      <li>Reduced the time for adding paid content by 40%</li>
+      <li>Halved the process of releasing new functionality</li>
+      <li>Increased client retention by 28%</li>
+      <li>Increased transitions to a more expensive tariff by 16%</li>
+    </ul>
+- slug: butik
+  title: "BUTIK"
+  description: |
+    <p><strong>Impact Highlights:</strong></p>
+    <ul role="list">
+      <li>Built from scratch and launched a new generation fashion-tech offline shop where you can order
+        clothes on a tablet in a private fitting room and get it in less than 5 mins, which allows to reduce
+        the number of fitting room attendants by 72% and decrease required area to 1/5 of the previous old
+        shop</li>
+      <li>Facilitated and managed 2 teams with 11 engineers in total</li>
+      <li>Reduced testing costs by 91% and crash rate per session from 8.1% to 1.2% by achieving 94% test
+        coverage</li>
+    </ul>
+- slug: corespirit
+  title: "CoreSpirit"
+  description: |
+    <p><strong>Impact Highlights:</strong></p>
+    <ul role="list">
+      <li>Built iOS and Android apps using Flutter, resulting in a 21% increase in the number of customers</li>
+      <li>Proposed, designed, and deployed OpenAI integration to production, which includes the implementation
+        of mentor-chatbot (14% increase of user engagement) and automated moderation for persons, articles,
+        and services (decreased time spent on moderation up to 70%)</li>
+      <li>Reduced CPR by 56% by implementing Google dynamic campaigns</li>
+    </ul>
+- slug: getmark
+  title: "GetMark"
+  description: |
+    <p><strong>Impact Highlights:</strong></p>
+    <ul role="list">
+      <li>Increased maximum service&#x27;s RPM by 10 times</li>
+      <li>Optimized testing and release costs by more than 20% (CI integration)</li>
+      <li>Reduced development costs by more than 2 times (processes creation/optimizations)</li>
+      <li>Accelerated the implementation speed of functionality by up to 5 times</li>
+    </ul>
+- slug: own
+  title: "Own projects"
+- slug: sibriver
+  title: "Sibriver"
+- slug: tobox
+  title: "ToBox"
+  description: |
+    <p><strong>Impact Highlights:</strong></p>
+    <ul role="list">
+      <li>Increased sales conversion by 23%</li>
+      <li>Increased seller engagement by 30%</li>
+      <li>Doubled the speed of launching advertising campaigns</li>
+      <li>Reduced testing costs by 1.5 times</li>
+    </ul>

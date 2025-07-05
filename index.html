@@ -1,0 +1,27 @@
+---
+layout: default
+title: Mike Frolov
+nav: portfolio
+---
+
+<div class="hero">
+    {% include nav.html %}
+        <div class="heading-wrapper tn-container">
+            <h1 class="main-heading">I&#x27;m Mike<br />Software Engineer</h1><a href="/about#contacts"
+                class="button tn-button">Hire me</a>
+        </div>
+    </div>
+    <div class="section">
+        <div class="tn-container">
+            <h3 class="section-title">Projects</h3>
+            <div class="tn-dyn-list">
+                <div role="list" class="tn-dyn-items tn-row">
+                    {% for project in site.data.projects %}
+                    <div role="listitem" class="tn-dyn-item tn-col tn-col-4"><a href="/projects/{{ project.slug }}" class="tn-inline-block"><img alt="{{ project.title }}" loading="lazy" src="{{ project.image }}"{% if project.image_small %} srcset="{{ project.image_small }} 500w, {{ project.image }} 800w" sizes="(max-width: 767px) 96vw, (max-width: 991px) 229.328125px, 299.9921875px"{% endif %} class="project-image" /></a></div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include footer.html %}
+
