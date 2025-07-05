@@ -1,34 +1,6 @@
 ---
-layout: default
-title: "Mike Frolov: Sibriver Projects"
+layout: company
+title: "Mike Frolov: {{ site.data.companies | where: 'slug', page.slug | first | dig: 'title' }} Projects"
 nav: portfolio
+slug: sibriver
 ---
-<div class="hero small">
-        {% include nav.html %}
-        <div class="heading-wrapper tn-container">
-            <h1 class="main-heading">Sibriver</h1>
-        </div>
-    </div>
-    <div class="tn-container">
-        <div class="tn-dyn-list">
-            <div role="list" class="tn-dyn-items tn-row">
-                <div role="listitem" class="tn-dyn-item tn-col tn-col-4"><a href="/projects/morgan-taylor"
-                        class="tn-inline-block"><img src="/assets/5ed90d0d7b71a1892eed5850_mt_project.png" loading="lazy"
-                            alt="" sizes="100vw"
-                            srcset="/assets/5ed90d0d7b71a1892eed5850_mt_project-p-500.png 500w, /assets/5ed90d0d7b71a1892eed5850_mt_project.png 800w"
-                            class="project-image" /></a></div>
-                <div role="listitem" class="tn-dyn-item tn-col tn-col-4"><a href="/projects/alert-button"
-                        class="tn-inline-block"><img src="/assets/63d96515e923afe00106100f_alert_button_project.png"
-                            loading="lazy" alt="" sizes="100vw"
-                            srcset="/assets/63d96515e923afe00106100f_alert_button_project-p-500.png 500w, /assets/63d96515e923afe00106100f_alert_button_project.png 800w"
-                            class="project-image" /></a></div>
-                <div role="listitem" class="tn-dyn-item tn-col tn-col-4"><a href="/projects/bubuka"
-                        class="tn-inline-block"><img src="/assets/683f5d5cb1ab90743fad8905_bubuka_project.png"
-                            loading="lazy" alt="" sizes="100vw"
-                            srcset="/assets/683f5d5cb1ab90743fad8905_bubuka_project-p-500.png 500w, /assets/683f5d5cb1ab90743fad8905_bubuka_project.png 800w"
-                            class="project-image" /></a></div>
-            </div>
-        </div>
-        <div class="project-body-copy tn-dyn-bind-empty tn-richtext"></div>
-    </div>
-{% include footer.html %}

@@ -1,34 +1,6 @@
 ---
-layout: default
-title: "Mike Frolov: CoreSpirit Projects"
+layout: company
+title: "Mike Frolov: {{ site.data.companies | where: 'slug', page.slug | first | dig: 'title' }} Projects"
 nav: portfolio
+slug: corespirit
 ---
-<div class="hero small">
-        {% include nav.html %}
-        <div class="heading-wrapper tn-container">
-            <h1 class="main-heading">CoreSpirit</h1>
-        </div>
-    </div>
-    <div class="tn-container">
-        <div class="tn-dyn-list">
-            <div role="list" class="tn-dyn-items tn-row">
-                <div role="listitem" class="tn-dyn-item tn-col tn-col-4"><a href="/projects/corespirit"
-                        class="tn-inline-block"><img src="/assets/633ebc11bf57541996855f33_cs-logo.jpg" loading="lazy"
-                            alt="" sizes="100vw"
-                            srcset="/assets/633ebc11bf57541996855f33_cs-logo-p-500.jpg 500w, /assets/633ebc11bf57541996855f33_cs-logo.jpg 800w"
-                            class="project-image" /></a></div>
-            </div>
-        </div>
-        <div class="project-body-copy tn-richtext">
-            <p><strong>Impact Highlights:</strong></p>
-            <ul role="list">
-                <li>Built iOS and Android apps using Flutter, resulting in a 21% increase in the number of customers
-                </li>
-                <li>Proposed, designed, and deployed OpenAI integration to production, which includes the implementation
-                    of mentor-chatbot (14% increase of user engagement) and automated moderation for persons, articles,
-                    and services (decreased time spent on moderation up to 70%)</li>
-                <li>Reduced CPR by 56% by implementing Google dynamic campaigns</li>
-            </ul>
-        </div>
-    </div>
-{% include footer.html %}

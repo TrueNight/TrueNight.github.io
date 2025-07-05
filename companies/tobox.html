@@ -1,31 +1,6 @@
 ---
-layout: default
-title: "Mike Frolov: ToBox Projects"
+layout: company
+title: "Mike Frolov: {{ site.data.companies | where: 'slug', page.slug | first | dig: 'title' }} Projects"
 nav: portfolio
+slug: tobox
 ---
-<div class="hero small">
-        {% include nav.html %}
-        <div class="heading-wrapper tn-container">
-            <h1 class="main-heading">ToBox</h1>
-        </div>
-    </div>
-    <div class="tn-container">
-        <div class="tn-dyn-list">
-            <div role="list" class="tn-dyn-items tn-row">
-                <div role="listitem" class="tn-dyn-item tn-col tn-col-4"><a href="/projects/tobox"
-                        class="tn-inline-block"><img src="/assets/5f0effc8e140815520a5fc17_tobox_project.png"
-                            loading="lazy" alt="" class="project-image" /></a></div>
-            </div>
-        </div>
-        <div class="project-body-copy tn-richtext">
-            <p><strong>Impact Highlights:</strong></p>
-            <ul role="list">
-                <li>Increased sales conversion by 23%</li>
-                <li>Increased seller engagement by 30%</li>
-                <li>Doubled the speed of launching advertising campaigns</li>
-                <li>Reduced testing costs by 1.5 times</li>
-            </ul>
-            <p>‍</p>
-        </div>
-    </div>
-{% include footer.html %}

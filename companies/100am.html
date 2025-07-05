@@ -1,32 +1,6 @@
 ---
-layout: default
-title: "Mike Frolov: 100AM Projects"
+layout: company
+title: "Mike Frolov: {{ site.data.companies | where: 'slug', page.slug | first | dig: 'title' }} Projects"
 nav: portfolio
+slug: 100am
 ---
-<div class="hero small">
-        {% include nav.html %}
-        <div class="heading-wrapper tn-container">
-            <h1 class="main-heading">100AM</h1>
-        </div>
-    </div>
-    <div class="tn-container">
-        <div class="tn-dyn-list">
-            <div role="list" class="tn-dyn-items tn-row">
-                <div role="listitem" class="tn-dyn-item tn-col tn-col-4"><a href="/projects/100am"
-                        class="tn-inline-block"><img src="/assets/5ed8e8222fd39706130b555a_100am_project.png"
-                            loading="lazy" alt="" sizes="100vw"
-                            srcset="/assets/5ed8e8222fd39706130b555a_100am_project-p-500.png 500w, /assets/5ed8e8222fd39706130b555a_100am_project.png 800w"
-                            class="project-image" /></a></div>
-            </div>
-        </div>
-        <div class="project-body-copy tn-richtext">
-            <p><strong>Impact Highlights:</strong></p>
-            <ul role="list">
-                <li>Reduced the time for adding paid content by 40%</li>
-                <li>Halved the process of releasing new functionality</li>
-                <li>Increased client retention by 28%</li>
-                <li>Increased transitions to a more expensive tariff by 16%</li>
-            </ul>
-        </div>
-    </div>
-{% include footer.html %}

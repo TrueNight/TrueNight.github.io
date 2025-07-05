@@ -1,32 +1,6 @@
 ---
-layout: default
-title: "Mike Frolov: GetMark Projects"
+layout: company
+title: "Mike Frolov: {{ site.data.companies | where: 'slug', page.slug | first | dig: 'title' }} Projects"
 nav: portfolio
+slug: getmark
 ---
-<div class="hero small">
-        {% include nav.html %}
-        <div class="heading-wrapper tn-container">
-            <h1 class="main-heading">GetMark</h1>
-        </div>
-    </div>
-    <div class="tn-container">
-        <div class="tn-dyn-list">
-            <div role="list" class="tn-dyn-items tn-row">
-                <div role="listitem" class="tn-dyn-item tn-col tn-col-4"><a href="/projects/getmark"
-                        class="tn-inline-block"><img src="/assets/6385e56e052ec6080e65a917_getmark_project.png"
-                            loading="lazy" alt="" sizes="100vw"
-                            srcset="/assets/6385e56e052ec6080e65a917_getmark_project-p-500.png 500w, /assets/6385e56e052ec6080e65a917_getmark_project.png 800w"
-                            class="project-image" /></a></div>
-            </div>
-        </div>
-        <div class="project-body-copy tn-richtext">
-            <p><strong>Impact Highlights:</strong></p>
-            <ul role="list">
-                <li>Increased maximum service&#x27;s RPM by 10 times</li>
-                <li>Optimized testing and release costs by more than 20% (CI integration)</li>
-                <li>Reduced development costs by more than 2 times (processes creation/optimizations)</li>
-                <li>Accelerated the implementation speed of functionality by up to 5 times</li>
-            </ul>
-        </div>
-    </div>
-{% include footer.html %}
