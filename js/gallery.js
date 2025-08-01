@@ -1,5 +1,4 @@
 (function() {
-  // Wait for DOM to be ready
   function ready(fn) {
     if (document.readyState !== 'loading') {
       fn();
@@ -9,105 +8,87 @@
   }
 
   ready(function() {
-    // Create modal HTML structure
-    const modalHTML = `
-      <div id="gallery-modal" style="display:none;">
-        <div id="gallery-overlay"></div>
-        <div id="gallery-content">
-          <span id="gallery-close">&times;</span>
-          <img id="gallery-image" src="" alt="" />
-          <div id="gallery-meta"></div>
-          <button id="gallery-prev">&#8592;</button>
-          <button id="gallery-next">&#8594;</button>
-        </div>
-      </div>
-    `;
+    const template = `
+      <div id="gallery-view">
+        <button id="gallery-close">&times;</button>
+        <img id="gallery-image" alt="" loading="lazy" />
+        <div id="gallery-thumbs"></div>
+        <button id="gallery-prev" class="gallery-nav">&#10094;</button>
+        <button id="gallery-next" class="gallery-nav">&#10095;</button>
+      </div>`;
 
-    // Add modal to body
-    document.body.insertAdjacentHTML('beforeend', modalHTML);
-
-    // Add CSS styles
     const styles = `
       <style>
-        #gallery-modal {
-          position: fixed; 
-          z-index: 9999; 
-          left: 0; 
-          top: 0; 
-          width: 100vw; 
+        #gallery-view {
+          position: fixed;
+          z-index: 9999;
+          left: 0;
+          top: 0;
+          width: 100vw;
           height: 100vh;
-          background: rgba(0,0,0,0.8); 
-          display: flex; 
-          align-items: center; 
+          background: rgba(0,0,0,0.9);
+          display: flex;
+          align-items: center;
           justify-content: center;
+          overflow: hidden;
         }
-        #gallery-overlay { 
-          position: absolute; 
-          width: 100%; 
-          height: 100%; 
-          top: 0; 
-          left: 0; 
-        }
-        #gallery-content {
-          position: relative; 
-          z-index: 2; 
-          background: #222; 
-          padding: 20px; 
-          border-radius: 8px; 
-          text-align: center;
-          max-width: 90vw; 
-          max-height: 90vh;
-        }
-        #gallery-image { 
-          max-width: 80vw; 
-          max-height: 70vh; 
+        #gallery-image {
+          max-width: 90vw;
+          max-height: 80vh;
           object-fit: contain;
         }
         #gallery-close {
-          position: absolute; 
-          top: 10px; 
-          right: 20px; 
-          color: #fff; 
-          font-size: 2em; 
-          cursor: pointer;
+          position: absolute;
+          top: 10px;
+          right: 20px;
+          color: #fff;
+          font-size: 2rem;
           background: none;
           border: none;
-          padding: 0;
-          width: 40px;
+          cursor: pointer;
+        }
+        .gallery-nav {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background: none;
+          border: none;
+          color: #fff;
+          font-size: 3rem;
+          cursor: pointer;
+        }
+        #gallery-prev { left: 10px; }
+        #gallery-next { right: 10px; }
+        #gallery-thumbs {
+          position: absolute;
+          bottom: 10px;
+          left: 0;
+          right: 0;
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+          overflow-x: auto;
+        }
+        #gallery-thumbs img {
+          width: 60px;
           height: 40px;
-          line-height: 40px;
+          object-fit: cover;
+          opacity: 0.6;
+          cursor: pointer;
         }
-        #gallery-prev, #gallery-next {
-          background: none; 
-          border: none; 
-          color: #fff; 
-          font-size: 2em; 
-          cursor: pointer; 
-          margin: 0 20px;
-          padding: 10px;
-          border-radius: 50%;
-          transition: background-color 0.3s;
+        #gallery-thumbs img.active {
+          opacity: 1;
+          border: 2px solid #fff;
         }
-        #gallery-prev:hover, #gallery-next:hover {
-          background-color: rgba(255,255,255,0.1);
-        }
-        #gallery-meta { 
-          color: #fff; 
-          margin-top: 10px; 
-          font-size: 14px;
-        }
-      </style>
-    `;
+      </style>`;
 
-    // Add styles to head
     document.head.insertAdjacentHTML('beforeend', styles);
 
-    // Gallery functionality
     const items = document.querySelectorAll('.collection-item');
     let galleryData = [];
     let currentIndex = 0;
+    let galleryEl = null;
 
-    // Helper: Parse JSON from .tn-json script
     function getJsonData(item) {
       const jsonScript = item.querySelector('.tn-json');
       if (!jsonScript) return null;
@@ -118,45 +99,85 @@
       }
     }
 
-    // Helper: Find all items in the same group
     function getGroupItems(group) {
-      let groupItems = [];
+      const groupItems = [];
       items.forEach(item => {
         const data = getJsonData(item);
         if (data && data.group === group) {
-          groupItems.push({item, data});
+          groupItems.push({ item, data, img: item.querySelector('img') });
         }
       });
       return groupItems;
     }
 
-    // Show modal
+    function createGallery() {
+      document.body.insertAdjacentHTML('beforeend', template);
+      galleryEl = document.getElementById('gallery-view');
+      galleryEl.querySelector('#gallery-close').onclick = hideGallery;
+      galleryEl.querySelector('#gallery-prev').onclick = prev;
+      galleryEl.querySelector('#gallery-next').onclick = next;
+    }
+
     function showGallery(groupItems, startIdx) {
       galleryData = groupItems;
       currentIndex = startIdx;
+      if (!document.getElementById('gallery-view')) {
+        createGallery();
+      }
+      updateThumbs();
       updateGallery();
-      document.getElementById('gallery-modal').style.display = 'flex';
     }
 
-    // Update modal content
+    function updateThumbs() {
+      const container = galleryEl.querySelector('#gallery-thumbs');
+      container.innerHTML = '';
+      galleryData.forEach((g, i) => {
+        const t = document.createElement('img');
+        t.src = g.img.src;
+        t.loading = 'lazy';
+        if (i === currentIndex) t.classList.add('active');
+        t.addEventListener('click', () => {
+          currentIndex = i;
+          updateGallery();
+        });
+        container.appendChild(t);
+      });
+    }
+
     function updateGallery() {
-      const {data} = galleryData[currentIndex];
-      const img = data.items[0]; // Assuming one image per .tn-json
-      document.getElementById('gallery-image').src = img.url;
-      document.getElementById('gallery-meta').textContent = `Image ${currentIndex + 1} of ${galleryData.length}`;
+      const { img } = galleryData[currentIndex];
+      const main = galleryEl.querySelector('#gallery-image');
+      main.src = img.src;
+      main.srcset = img.srcset || '';
+      galleryEl.querySelectorAll('#gallery-thumbs img').forEach((el, i) => {
+        el.classList.toggle('active', i === currentIndex);
+      });
+      if (!document.body.contains(galleryEl)) {
+        document.body.appendChild(galleryEl);
+      }
     }
 
-    // Hide modal
     function hideGallery() {
-      document.getElementById('gallery-modal').style.display = 'none';
+      if (galleryEl && galleryEl.parentNode) {
+        galleryEl.parentNode.removeChild(galleryEl);
+      }
     }
 
-    // Event listeners for each image
-    items.forEach((item, idx) => {
+    function prev() {
+      currentIndex = (currentIndex - 1 + galleryData.length) % galleryData.length;
+      updateGallery();
+    }
+
+    function next() {
+      currentIndex = (currentIndex + 1) % galleryData.length;
+      updateGallery();
+    }
+
+    items.forEach(item => {
       const img = item.querySelector('img');
       if (!img) return;
       img.style.cursor = 'pointer';
-      img.addEventListener('click', function(e) {
+      img.addEventListener('click', e => {
         e.preventDefault();
         const data = getJsonData(item);
         if (!data) return;
@@ -166,24 +187,11 @@
       });
     });
 
-    // Modal controls
-    document.getElementById('gallery-close').onclick = hideGallery;
-    document.getElementById('gallery-overlay').onclick = hideGallery;
-    document.getElementById('gallery-prev').onclick = function() {
-      currentIndex = (currentIndex - 1 + galleryData.length) % galleryData.length;
-      updateGallery();
-    };
-    document.getElementById('gallery-next').onclick = function() {
-      currentIndex = (currentIndex + 1) % galleryData.length;
-      updateGallery();
-    };
-
-    // Keyboard navigation
-    document.addEventListener('keydown', function(e) {
-      if (document.getElementById('gallery-modal').style.display !== 'flex') return;
+    document.addEventListener('keydown', e => {
+      if (!galleryEl || !document.body.contains(galleryEl)) return;
       if (e.key === 'Escape') hideGallery();
-      if (e.key === 'ArrowLeft') document.getElementById('gallery-prev').click();
-      if (e.key === 'ArrowRight') document.getElementById('gallery-next').click();
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
     });
   });
-})(); 
+})();
