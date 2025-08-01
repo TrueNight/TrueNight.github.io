@@ -20,7 +20,6 @@
   title: "Habit App"
   image: /assets/5ed8ce4c8e1f4060974cbb51_habit_project.png
   image_small: /assets/5ed8ce4c8e1f4060974cbb51_habit_project-p-500.png
-  company: own
   category: flutter
 - slug: shadowsocks
   title: "Shadowsocks"

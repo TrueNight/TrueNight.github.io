@@ -7,19 +7,28 @@ layout: default
 <div class="hero project-page">
     {% include nav.html %}
     <div class="heading-wrapper tn-container">
-      <div><a href="/companies/{{ company.slug }}" data-tn-expand="category" class="link-block tn-inline-block">
-          <h6 data-tn-expand="category" class="heading">{{ company.title }}</h6>
-        </a><a href="/categories/{{ category.slug }}" data-tn-expand="category" class="category-link tn-inline-block">
-          <h6 data-tn-expand="category" class="heading">{{ category.title }}</h6>
-        </a></div><img alt="" src="{{ proj.image }}"{% if proj.image_small %} srcset="{{ proj.image_small }} 500w, {{ proj.image }} 800w" sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"{% endif %} class="main-detail-image" />
-      <h1 class="main-heading">{{ proj.title }}</h1>
+        <div>
+            {% if company.slug %}
+            <a href="/companies/{{ company.slug }}" data-tn-expand="category" class="link-block tn-inline-block">
+                <h6 data-tn-expand="category" class="heading">{{ company.title }}</h6>
+            </a>
+            {% endif %}
+            <a href="/categories/{{ category.slug }}" data-tn-expand="category"
+               class="category-link tn-inline-block">
+                <h6 data-tn-expand="category" class="heading">{{ category.title }}</h6>
+            </a>
+        </div>
+        <img alt="" src="{{ proj.image }}" {% if proj.image_small %}
+             srcset="{{ proj.image_small }} 500w, {{ proj.image }} 800w"
+             sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px" {% endif %} class="main-detail-image"/>
+        <h1 class="main-heading">{{ proj.title }}</h1>
     </div>
-  </div>
+</div>
 {% if company.description %}
 <div class="tn-container">
-  <div class="project-body-copy tn-richtext">
-    {{ company.description }}
-  </div>
+    <div class="project-body-copy tn-richtext">
+        {{ company.description }}
+    </div>
 </div>
 {% endif %}
 {{ content }}
@@ -29,7 +38,12 @@ layout: default
         <div role="list" class="tn-dyn-items tn-row">
             {% for project in site.data.projects %}
             {% if project.slug != page.slug %}
-            <div role="listitem" class="tn-dyn-item tn-col tn-col-4"><a href="/projects/{{ project.slug }}" class="tn-inline-block"><img alt="{{ project.title }}" loading="lazy" src="{{ project.image }}"{% if project.image_small %} srcset="{{ project.image_small }} 500w, {{ project.image }} 800w" sizes="(max-width: 767px) 96vw, (max-width: 991px) 229.328125px, 299.9921875px"{% endif %} class="project-image" /></a></div>
+            <div role="listitem" class="tn-dyn-item tn-col tn-col-4"><a href="/projects/{{ project.slug }}"
+                                                                        class="tn-inline-block"><img
+                    alt="{{ project.title }}" loading="lazy" src="{{ project.image }}" {% if project.image_small %}
+                    srcset="{{ project.image_small }} 500w, {{ project.image }} 800w"
+                    sizes="(max-width: 767px) 96vw, (max-width: 991px) 229.328125px, 299.9921875px" {% endif %}
+                    class="project-image"/></a></div>
             {% endif %}
             {% endfor %}
         </div>

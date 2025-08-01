@@ -2057,7 +2057,7 @@ img {
 }
 
 .hero {
-  background-image: linear-gradient(#00000091, #222), url("/assets/5ed8cbb0a147706f6010ad78_phone4.png");
+  background-image: linear-gradient(#00000091, #222), url("/assets/true_night_background_1_w800.png");
   background-position: 0 0, 38%;
   background-repeat: repeat, no-repeat;
   background-size: auto, cover;
@@ -2073,7 +2073,7 @@ img {
 }
 
 .hero.about-page {
-  background-image: linear-gradient(#00000091, #222), url("/assets/5ecfd12decf1c56cf7b3c840_surf.png");
+  background-image: linear-gradient(#00000091, #222), url("/assets/true_night_background_2_w1920.png");
   background-size: auto, cover;
   min-height: 340px;
 }
