@@ -3,10 +3,10 @@
   description: |
     <p><strong>Impact Highlights:</strong></p>
     <ul role="list">
-      <li>Reduced the time for adding paid content by 40%</li>
-      <li>Halved the process of releasing new functionality</li>
-      <li>Increased client retention by 28%</li>
-      <li>Increased transitions to a more expensive tariff by 16%</li>
+      <li>Reduced the time for adding paid content by 40% by introducing backend-driven UI for business cards</li>
+      <li>Halved the process of releasing new functionality by implementing Kanban, feature-deploy, and CI/CD pipelines</li>
+      <li>Increased client retention by 28% by launching a business cards nearby feature and two-way contact book sync</li>
+      <li>Increased transitions to a more expensive tariff by 16% by adding access control for tariff-based features and feature hints</li>
     </ul>
 - slug: butik
   title: "BUTIK"
@@ -37,10 +37,10 @@
   description: |
     <p><strong>Impact Highlights:</strong></p>
     <ul role="list">
-      <li>Increased maximum service&#x27;s RPM by 10 times</li>
-      <li>Optimized testing and release costs by more than 20% (CI integration)</li>
-      <li>Reduced development costs by more than 2 times (processes creation/optimizations)</li>
-      <li>Accelerated the implementation speed of functionality by up to 5 times</li>
+      <li>Increased maximum service&#x27;s RPM by 10x through SQL query optimizations and architecture updates</li>
+      <li>Optimized testing and release costs by over 20% through CI integration, parallel builds, and feature stands</li>
+      <li>Reduced development costs by more than 2x by designing a development pipeline with defined task implementation steps, sprint planning, task estimate evaluation, and team performance tracking</li>
+      <li>Accelerated the implementation speed of functionality by up to 5x by improving the code review process, switching Git flow to rebase, introducing automated tests, enhancing backlog grooming, and providing lectures and mentoring</li>
     </ul>
 - slug: own
   title: "Own projects"
@@ -51,8 +51,8 @@
   description: |
     <p><strong>Impact Highlights:</strong></p>
     <ul role="list">
-      <li>Increased sales conversion by 23%</li>
-      <li>Increased seller engagement by 30%</li>
-      <li>Doubled the speed of launching advertising campaigns</li>
-      <li>Reduced testing costs by 1.5 times</li>
+      <li>Increased sales conversion by 23% through in-app ads and suggestions, and by reducing the number of actions required for purchase</li>
+      <li>Increased seller engagement by 30% by introducing a seller dashboard and implementing product card creation in the mobile app</li>
+      <li>Doubled the speed of launching advertising campaigns by developing a backend-driven marketing campaign banner builder</li>
+      <li>Reduced testing costs by 1.5x by achieving 76% automated test coverage</li>
     </ul>

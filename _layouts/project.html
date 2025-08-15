@@ -24,7 +24,7 @@ layout: default
         <h1 class="main-heading">{{ proj.title }}</h1>
     </div>
 </div>
-{% if company.description %}
+{% if proj.company and company.description %}
 <div class="tn-container">
     <div class="project-body-copy tn-richtext">
         {{ company.description }}
